@@ -38,12 +38,11 @@ def send_texts():
     s = smtplib.SMTP('smtp.gmail.com', 587)
     s.ehlo()
     s.starttls()
-    s.login('bludeau@gmail.com', 't1mt3b0w')
+    s.login('username', 'password')
     for santa in assignmets:
         msg = MIMEText("You are assigned %s as secret santa" % assignmets[santa])
         #msg = MIMEText("Test for secret santa, send a text to Dan if you got!")
         msg['To'] = data[santa]['phone']
-        msg['From'] = '7203410472@tmomail.net'
         msg['Subject'] = "Secret Santa!"
         s.send_message(msg)
         print("%s has been sent a message" % santa)
