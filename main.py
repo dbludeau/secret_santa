@@ -41,7 +41,6 @@ def send_texts():
     s.login('username', 'password')
     for santa in assignmets:
         msg = MIMEText("You are assigned %s as secret santa" % assignmets[santa])
-        #msg = MIMEText("Test for secret santa, send a text to Dan if you got!")
         msg['To'] = data[santa]['phone']
         msg['Subject'] = "Secret Santa!"
         s.send_message(msg)
